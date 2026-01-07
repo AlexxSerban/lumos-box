@@ -63,7 +63,15 @@ const WhyDifferentBentoSection = () => {
         <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
           {features.map((feature) => (
             <article key={feature.id} className="group">
-              <Card className="relative h-full overflow-hidden transition-all duration-300 hover:border-accent-neon-blue/30 hover:-translate-y-0.5">
+              <Card 
+                className="relative h-full overflow-hidden transition-all duration-300 hover:border-accent-neon-blue/30 hover:-translate-y-0.5"
+                style={feature.id === 1 ? {
+                  backgroundImage: 'url(/images/FirstCardBg.png)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat'
+                } : {}}
+              >
                 <CardContent className="p-6">
                   <Badge 
                     variant="secondary" 
