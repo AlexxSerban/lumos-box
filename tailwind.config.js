@@ -10,6 +10,12 @@ export default {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         accent: 'var(--accent)',
+        'accent-neon-red': 'var(--accent-neon-red)',
+        'accent-neon-purple': 'var(--accent-neon-purple)',
+        'accent-neon-blue': 'var(--accent-neon-blue)',
+        'accent-neon-cyan': 'var(--accent-neon-cyan)',
+        'neutral-silver': 'var(--neutral-silver)',
+        'neutral-grey': 'var(--neutral-grey)',
         'border-subtle': 'var(--border-subtle)',
       },
       spacing: {

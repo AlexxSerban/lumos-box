@@ -143,7 +143,7 @@ const ExtrasGalleryFaqBookingSections = () => {
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 md:mb-20 text-center lg:text-left">
             <div className="flex items-center justify-center lg:justify-start gap-2 mb-4 text-sm text-foreground/60">
-              <span className="w-1 h-1 rounded-full bg-accent"></span>
+              <span className="w-1 h-1 rounded-full bg-accent-neon-cyan"></span>
               <span>Personalizabil</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-[1.1] mb-4">
@@ -161,7 +161,7 @@ const ExtrasGalleryFaqBookingSections = () => {
                 className="group cursor-default transition-all duration-300 hover:border-foreground/20 hover:-translate-y-0.5"
               >
                 <CardContent className="p-6 md:p-8">
-                  <h3 className="text-lg font-semibold tracking-tight mb-2 relative group-hover:underline group-hover:decoration-accent group-hover:decoration-[2px] group-hover:underline-offset-8 transition-all duration-300">
+                  <h3 className="text-lg font-semibold tracking-tight mb-2 relative group-hover:underline group-hover:decoration-accent-neon-cyan group-hover:decoration-[2px] group-hover:underline-offset-8 transition-all duration-300">
                     {addon.title}
                   </h3>
                   {addon.description && (
@@ -180,6 +180,7 @@ const ExtrasGalleryFaqBookingSections = () => {
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-[1.1] mb-2">
             Galerie.
           </h2>
+          <div className="w-12 h-[2px] bg-accent-neon-blue mb-4"></div>
           <p className="text-base md:text-lg text-foreground/70 max-w-2xl">
             Cadre reale din evenimente. Ușor de distribuit.
           </p>
@@ -231,7 +232,7 @@ const ExtrasGalleryFaqBookingSections = () => {
         <div className="absolute bottom-6 left-6 md:bottom-12 md:left-12 lg:left-20 z-20">
           <a
             href="#"
-            className="text-sm text-foreground/60 hover:text-foreground hover:underline hover:decoration-accent hover:decoration-1 hover:underline-offset-4 transition-colors"
+            className="text-sm text-foreground/60 hover:text-foreground hover:underline hover:decoration-accent-neon-blue hover:decoration-1 hover:underline-offset-4 transition-colors"
           >
             Vezi mai multe pe Instagram
           </a>
@@ -244,6 +245,7 @@ const ExtrasGalleryFaqBookingSections = () => {
           <div className="mb-16 md:mb-20 text-center lg:text-left">
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-[1.1] mb-4">
               Întrebări.
+              <span className="block mt-2 text-accent-neon-purple text-2xl md:text-3xl">●</span>
             </h2>
             <p className="text-base md:text-lg text-foreground/70 max-w-2xl mx-auto lg:mx-0">
               Răspunsuri la cele mai frecvente întrebări.
@@ -273,6 +275,7 @@ const ExtrasGalleryFaqBookingSections = () => {
           <div className="mb-16 md:mb-20 text-center lg:text-left">
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-[1.1] mb-4">
               Cere ofertă personalizată.
+              <span className="block mt-2 text-accent-neon-red text-2xl md:text-3xl">●</span>
             </h2>
             <p className="text-base md:text-lg text-foreground/70 max-w-2xl mx-auto lg:mx-0">
               Spune-ne câteva detalii, revenim rapid cu o ofertă.

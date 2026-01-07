@@ -33,14 +33,14 @@ const HowItWorksAndEventsSection = () => {
         {/* Header */}
         <div className="mb-16 md:mb-20 text-center lg:text-left">
           <div className="flex items-center justify-center lg:justify-start gap-2 mb-4 text-sm text-foreground/60">
-            <span className="w-1 h-1 rounded-full bg-accent"></span>
+            <span className="w-1 h-1 rounded-full bg-accent-neon-cyan"></span>
             <span>Simple. Rapid. Elegant.</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.1] mb-4">
             Cum{" "}
             <span className="relative">
               funcționează
-              <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-accent"></span>
+              <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-accent-neon-cyan"></span>
             </span>
             .
           </h2>
@@ -96,7 +96,7 @@ const HowItWorksAndEventsSection = () => {
               <ul className="space-y-3 md:space-y-4">
                 {eventTypes.map((event, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent-neon-cyan mt-2 flex-shrink-0"></span>
                     <span className="text-base text-foreground/80 leading-relaxed">
                       {event}
                     </span>

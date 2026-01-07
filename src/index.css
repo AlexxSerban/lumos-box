@@ -6,6 +6,12 @@
   --background: #0A0A0A;
   --foreground: #FFFFFF;
   --accent: #D90B12;
+  --accent-neon-red: #FF0066;
+  --accent-neon-purple: #B026FF;
+  --accent-neon-blue: #00A8FF;
+  --accent-neon-cyan: #00F5FF;
+  --neutral-silver: #C0C0C0;
+  --neutral-grey: #808080;
   --border-subtle: rgba(255, 255, 255, 0.1);
 }
 
@@ -153,9 +159,9 @@ body {
 .neon-pulse {
   position: relative;
   background: transparent;
-  border: 2px solid var(--accent);
+  border: 2px solid var(--accent-neon-purple);
   border-radius: 9999px;
-  box-shadow: 0 0 10px rgba(217, 11, 18, 0.3);
+  box-shadow: 0 0 10px rgba(176, 38, 255, 0.3);
   overflow: visible;
   transition: all 0.4s ease;
 }
@@ -165,7 +171,7 @@ body {
   content: "";
   position: absolute;
   inset: -4px;
-  border: 2px solid var(--accent);
+  border: 2px solid var(--accent-neon-purple);
   border-radius: inherit;
   animation: pulseOut 2s ease-out infinite;
   opacity: 0;
@@ -321,7 +327,7 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--accent);
+  background: var(--accent-neon-red);
   transition: width 0.3s ease 0s;
 }
 
@@ -332,7 +338,7 @@ body {
   right: 0;
   width: 2px;
   height: 0;
-  background: var(--accent);
+  background: var(--accent-neon-red);
   transition: height 0.3s ease 0.3s;
 }
 
@@ -342,7 +348,7 @@ body {
   right: 0;
   width: 0;
   height: 2px;
-  background: var(--accent);
+  background: var(--accent-neon-red);
   transition: width 0.3s ease 0.6s;
 }
 
@@ -353,7 +359,7 @@ body {
   left: 0;
   width: 2px;
   height: 0;
-  background: var(--accent);
+  background: var(--accent-neon-red);
   transition: height 0.3s ease 0.9s;
 }
 
@@ -374,7 +380,7 @@ body {
 }
 
 .draw-outline-button:hover {
-  color: var(--accent);
+  color: var(--accent-neon-red);
 }
 
 /* Social Media Icons Animation */

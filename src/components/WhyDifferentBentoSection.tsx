@@ -1,30 +1,44 @@
 import { Card, CardContent } from "@/components/ui/card"
-import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { ArrowRight, Sparkles, Zap, Film, Users } from "lucide-react"
 
-const features = [
+interface FeatureItem {
+  id: number
+  title: string
+  description: string
+  icon: React.ComponentType<{ className?: string }>
+  color: string
+}
+
+const features: FeatureItem[] = [
   {
-    microline: "PREMIUM DESIGN",
+    id: 1,
     title: "Design minimal, impact maxim",
     description: "Estetică curată, fără kitsch. Fiecare element este gândit pentru a crea o experiență premium care reflectă calitatea evenimentului tău.",
-    accent: true,
+    icon: Sparkles,
+    color: "text-accent-neon-red",
   },
   {
-    microline: "FAST SETUP",
+    id: 2,
     title: "Livrare rapidă, fără fricțiune",
     description: "Setup rapid, flux fluid pentru oaspeți. Tehnologie care funcționează perfect, fără întârzieri sau complicații.",
-    accent: false,
+    icon: Zap,
+    color: "text-accent-neon-purple",
   },
   {
-    microline: "CINEMATIC OUTPUT",
+    id: 3,
     title: "Output cinematic",
     description: "Calitate foto și video de nivel profesional. Iluminare consistentă, culori precise, gata pentru editare și arhivare.",
-    accent: false,
+    icon: Film,
+    color: "text-accent-neon-blue",
   },
   {
-    microline: "ELEGANT INTERACTION",
+    id: 4,
     title: "Interactiv, dar elegant",
     description: "Experiență captivantă fără să fie zgomotoasă. Tehnologie interactivă care se integrează natural în atmosfera evenimentului.",
-    accent: true,
+    icon: Users,
+    color: "text-accent-neon-cyan",
   },
 ]
 
@@ -32,59 +46,70 @@ const WhyDifferentBentoSection = () => {
   return (
     <section id="why" className="py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-background">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="mb-16 md:mb-20 text-center lg:text-left">
-          <div className="flex items-center justify-center lg:justify-start gap-2 mb-4 text-sm text-foreground/60">
-            <span className="w-1 h-1 rounded-full bg-accent"></span>
-            <span>Built for modern events</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.1] mb-4">
+        {/* Header Section */}
+        <header className="mx-auto mb-12 md:mb-16 max-w-2xl text-center">
+          <Badge variant="secondary" className="mb-4 rounded-full px-4 py-1 font-medium border-accent-neon-blue/30 text-accent-neon-blue">
+            Built for modern events
+          </Badge>
+          <h2 className="mb-4 text-3xl md:text-4xl font-extrabold tracking-tight leading-[1.1]">
             De ce e diferit.
           </h2>
-          <p className="text-base md:text-lg text-foreground/70 max-w-2xl mx-auto lg:mx-0">
-            O abordare minimalistă care pune calitatea și experiența în centru.
+          <p className="text-base md:text-lg text-foreground/70 text-pretty">
+            O abordare minimalistă care pune calitatea și experiența în centru. Descoperă de ce mii de evenimente aleg Lumos Box pentru experiențe memorabile.
           </p>
+        </header>
+
+        {/* Features Grid */}
+        <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
+          {features.map((feature) => (
+            <article key={feature.id} className="group">
+              <Card className="relative h-full overflow-hidden transition-all duration-300 hover:border-accent-neon-blue/30 hover:-translate-y-0.5">
+                <CardContent className="p-6">
+                  <Badge 
+                    variant="secondary" 
+                    className={`mb-4 inline-flex size-12 items-center justify-center ${
+                      feature.id === 1 ? 'border-accent-neon-red/20 bg-accent-neon-red/10' :
+                      feature.id === 2 ? 'border-accent-neon-purple/20 bg-accent-neon-purple/10' :
+                      feature.id === 3 ? 'border-accent-neon-blue/20 bg-accent-neon-blue/10' :
+                      'border-accent-neon-cyan/20 bg-accent-neon-cyan/10'
+                    }`}
+                  >
+                    <feature.icon className={`size-5 ${feature.color}`} aria-hidden="true" />
+                  </Badge>
+                  <h3 
+                    className="mb-2 text-lg md:text-xl font-semibold tracking-tight"
+                    style={{
+                      color: feature.id === 1 ? 'var(--accent-neon-red)' :
+                              feature.id === 2 ? 'var(--accent-neon-purple)' :
+                              feature.id === 3 ? 'var(--accent-neon-blue)' :
+                              'var(--accent-neon-cyan)'
+                    }}
+                  >
+                    {feature.title}
+                  </h3>
+                  <p className="text-foreground/70 text-sm md:text-base leading-relaxed">{feature.description}</p>
+                </CardContent>
+              </Card>
+            </article>
+          ))}
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8">
-          {features.map((feature, index) => {
-            const isBig = index === 0 || index === 3
-
-            return (
-              <article
-                key={index}
-                className={cn(
-                  isBig ? "lg:col-span-7" : "lg:col-span-5"
-                )}
-              >
-                <Card className="group cursor-pointer transition-all duration-300 hover:border-foreground/20 hover:-translate-y-0.5">
-                  <CardContent className="p-6 md:p-8">
-                    {feature.microline && (
-                      <div className="mb-3 text-xs uppercase tracking-widest text-foreground/50 text-center lg:text-left">
-                        {feature.microline}
-                      </div>
-                    )}
-                    <h3 className="text-xl md:text-2xl font-semibold tracking-tight mb-3 relative text-center lg:text-left">
-                      {feature.accent ? (
-                        <span className="relative">
-                          {feature.title}
-                          <span className="absolute -bottom-1 left-0 right-0 h-[1px] bg-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                        </span>
-                      ) : (
-                        <span className="relative group-hover:underline group-hover:decoration-accent group-hover:decoration-[1px] group-hover:underline-offset-8 transition-all duration-300">
-                          {feature.title}
-                        </span>
-                      )}
-                    </h3>
-                    <p className="text-sm md:text-base text-foreground/70 leading-relaxed text-center lg:text-left">
-                      {feature.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </article>
-            )
-          })}
+        {/* Bottom CTA */}
+        <div className="mt-12 md:mt-16 text-center">
+          <Button
+            variant="ghost"
+            size="lg"
+            className="cursor-pointer rounded-lg px-8 text-base md:text-lg hover:underline hover:decoration-accent-neon-blue hover:decoration-1 hover:underline-offset-8"
+            onClick={() => {
+              const element = document.getElementById("packages")
+              if (element) {
+                element.scrollIntoView({ behavior: "smooth" })
+              }
+            }}
+          >
+            Vezi pachetele
+            <ArrowRight className="ms-2 size-4" aria-hidden="true" />
+          </Button>
         </div>
       </div>
     </section>

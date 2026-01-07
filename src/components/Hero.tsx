@@ -35,62 +35,94 @@ const Hero = () => {
 
   return (
     <section 
-      className="relative h-screen min-h-[600px] flex items-start lg:items-center px-4 sm:px-6 md:px-12 lg:px-20 overflow-hidden pt-24 md:pt-32 lg:pt-0"
+      className="relative min-h-screen bg-background pt-24 md:pt-32"
     >
-      {/* Mobile/Tablet Background */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat lg:hidden"
-        style={{
-          backgroundImage: `url('${import.meta.env.BASE_URL}images/hero-bg-mobile.png')`,
-        }}
-      />
-      
-      {/* Desktop Background */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden lg:block"
-        style={{
-          backgroundImage: `url('${import.meta.env.BASE_URL}images/heroSection2.png')`,
-        }}
-      />
-      
-      <div className="relative z-10 max-w-7xl w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
+        {/* Hero Content - Two Column Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-8 lg:mb-12">
+          {/* Left Column - Main Title */}
+          <div className="lg:col-span-6">
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.h1
+                variants={itemVariants}
+                className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-bold text-foreground tracking-tight leading-[1.1] mb-4"
+              >
+                WE DESIGN
+                <br />
+                MEMORABLE
+                <br />
+                EVENTS
+              </motion.h1>
+            </motion.div>
+          </div>
+
+          {/* Right Column - Empty for alignment */}
+          <div className="lg:col-span-6"></div>
+        </div>
+
+        {/* Neon Separator Line */}
         <motion.div
-          className="max-w-2xl mx-auto lg:mx-0"
-          variants={containerVariants}
+          variants={itemVariants}
           initial="hidden"
           animate="visible"
-        >
-          <motion.h1
-            variants={itemVariants}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-bold text-white tracking-tight leading-[1.1] mb-6 sm:mb-8 text-center lg:text-left"
-          >
-            WE DESIGN
-            <br />
-            <span className="relative">
-              MEMORABLE
-              <span className="absolute -bottom-1 sm:-bottom-2 left-0 right-0 h-[2px] bg-accent"></span>
-            </span>
-            <br />
-            EVENTS
-          </motion.h1>
-          <motion.p
-            variants={itemVariants}
-            className="text-lg sm:text-xl md:text-2xl lg:text-xl text-white/90 mb-12 sm:mb-16 tracking-tight text-center lg:text-left"
-          >
-            Photo. Video. Interactive.
-          </motion.p>
-          <motion.div
-            variants={itemVariants}
-            className="text-center lg:text-left"
-          >
-            <Button
-              variant="ghost"
-              onClick={scrollToServices}
-              className="text-base sm:text-lg md:text-xl lg:text-lg text-white hover:text-white"
+          className="w-full h-[1px] bg-foreground/20 mb-8 lg:mb-12"
+        />
+
+        {/* Bottom Content - Label and Description */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-8 lg:mb-12">
+          {/* Left Column - Label */}
+          <div className="lg:col-span-6">
+            <motion.div
+              variants={itemVariants}
+              initial="hidden"
+              animate="visible"
+              className="text-sm md:text-base text-foreground/60"
             >
-              Explore <ChevronDown className="ml-2 h-4 w-4" />
-            </Button>
-          </motion.div>
+              • Event Experience
+            </motion.div>
+          </div>
+
+          {/* Right Column - Description */}
+          <div className="lg:col-span-6 flex items-end">
+            <motion.p
+              variants={itemVariants}
+              initial="hidden"
+              animate="visible"
+              className="text-base md:text-lg lg:text-xl text-foreground/70 leading-relaxed max-w-xl"
+            >
+              Transformă prezența digitală a brandului tău cu designuri de ultimă generație care nu doar că arată impresionant, ci creează și impresii durabile și generează angajament semnificativ.
+            </motion.p>
+          </div>
+        </div>
+
+        {/* Hero Image - Full Width */}
+        <motion.div
+          variants={itemVariants}
+          initial="hidden"
+          animate="visible"
+          className="w-full"
+        >
+          {/* Mobile/Tablet Image */}
+          <div className="lg:hidden w-full aspect-[4/3] rounded-2xl overflow-hidden">
+            <img
+              src={`${import.meta.env.BASE_URL}images/hero-bg-mobile.png`}
+              alt="Lumos Box Event Experience"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          
+          {/* Desktop Image */}
+          <div className="hidden lg:block w-full aspect-[16/9] rounded-2xl overflow-hidden">
+            <img
+              src={`${import.meta.env.BASE_URL}images/heroSection2.png`}
+              alt="Lumos Box Event Experience"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </motion.div>
       </div>
     </section>

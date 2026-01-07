@@ -63,7 +63,7 @@ const PackagesSection = () => {
                 {/* Optional highlight for FLEX */}
                 {pkg.recommended && (
                   <div className="mb-4 flex items-center gap-2">
-                    <div className="w-[1px] h-4 bg-accent"></div>
+                    <div className="w-[1px] h-4 bg-accent-neon-red"></div>
                     <span className="text-xs text-foreground/50 uppercase tracking-wider">
                       Recomandat
                     </span>
@@ -71,7 +71,7 @@ const PackagesSection = () => {
                 )}
 
                 {/* Package Title */}
-                <h3 className="text-xl md:text-2xl font-semibold tracking-tight mb-2 relative group-hover:underline group-hover:decoration-accent group-hover:decoration-[2px] group-hover:underline-offset-8 transition-all duration-300">
+                <h3 className={`text-xl md:text-2xl font-semibold tracking-tight mb-2 relative group-hover:underline group-hover:decoration-[2px] group-hover:underline-offset-8 transition-all duration-300 ${pkg.recommended ? 'group-hover:decoration-accent-neon-red' : 'group-hover:decoration-accent-neon-purple'}`}>
                   {pkg.title}
                 </h3>
                 <p className="text-sm md:text-base text-foreground/60 mb-8">
@@ -82,7 +82,7 @@ const PackagesSection = () => {
                 <ul className="space-y-3 md:space-y-4 mb-8 max-w-prose">
                   {pkg.features.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0"></span>
+                      <span className={`w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 ${pkg.recommended ? 'bg-accent-neon-red' : 'bg-accent-neon-purple'}`}></span>
                       <span className="text-base text-foreground/70 leading-relaxed">
                         {feature}
                       </span>
@@ -93,7 +93,7 @@ const PackagesSection = () => {
                 {/* CTA */}
                 <Button
                   variant="ghost"
-                  className="text-base text-foreground hover:underline hover:decoration-accent hover:decoration-1 hover:underline-offset-8 w-full sm:w-auto"
+                  className={`text-base text-foreground hover:underline hover:decoration-1 hover:underline-offset-8 w-full sm:w-auto ${pkg.recommended ? 'hover:decoration-accent-neon-red' : 'hover:decoration-accent-neon-purple'}`}
                   onClick={() => {
                     const element = document.getElementById("contact")
                     if (element) {

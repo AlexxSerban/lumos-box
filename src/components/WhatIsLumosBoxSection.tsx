@@ -1,211 +1,192 @@
-import { useState, useEffect, useRef } from "react"
+import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-  type CarouselApi,
-} from "./ui/carousel"
 import { Button } from "./ui/button"
+import { Separator } from "./ui/separator"
+import { ArrowRight } from "lucide-react"
 
-const slides = [
+const stats = [
   {
-    src: `${import.meta.env.BASE_URL}images/LumosBusiness.png`,
-    alt: "Lumos Box - Business events",
+    number: "500+",
+    label: "Evenimente realizate",
   },
   {
-    src: `${import.meta.env.BASE_URL}images/LumosNunta.png`,
-    alt: "Lumos Box - Wedding events",
+    number: "5+",
+    label: "Ani de experiență",
   },
   {
-    src: `${import.meta.env.BASE_URL}images/LumosParty.png`,
-    alt: "Lumos Box - Party events",
-  },
-  {
-    src: `${import.meta.env.BASE_URL}images/LumosPetrecere.png`,
-    alt: "Lumos Box - Celebration events",
+    number: "2000+",
+    label: "Invitați mulțumiți",
   },
 ]
 
+const services = [
+  "Fotobooth Premium",
+  "Experiențe Interactive",
+  "Calitate Cinematică",
+  "Design Minimalist",
+  "Tehnologie Avansată",
+]
+
 const WhatIsLumosBoxSection = () => {
-  const [api, setApi] = useState<CarouselApi>()
-  const [current, setCurrent] = useState(0)
-  const [count, setCount] = useState(0)
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 })
 
-  useEffect(() => {
-    if (!api) {
-      return
-    }
-
-    setCount(api.scrollSnapList().length)
-    setCurrent(api.selectedScrollSnap() + 1)
-
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1)
-    })
-  }, [api])
-
-  // Auto-play: schimbă slide-ul la fiecare 5 secunde
-  useEffect(() => {
-    if (!api) {
-      return
-    }
-
-    const interval = setInterval(() => {
-      if (api.canScrollNext()) {
-        api.scrollNext()
-      } else {
-        // Dacă este ultimul slide, revine la primul
-        api.scrollTo(0)
-      }
-    }, 5000) // 5 secunde = 5000 ms
-
-    return () => clearInterval(interval)
-  }, [api])
-
-  const carouselVariants = {
-    hidden: { opacity: 0, x: -30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 1.2,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  }
-
-  const textContainerVariants = {
+  const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.4,
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
       },
     },
   }
 
-  const textItemVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 20,
-      filter: "blur(10px)",
-    },
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      filter: "blur(0px)",
       transition: {
-        duration: 1.2,
+        duration: 0.6,
         ease: [0.22, 1, 0.36, 1],
       },
     },
   }
 
   return (
-    <section ref={sectionRef} id="about" className="py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-background">
+    <section ref={sectionRef} id="about" className="py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 bg-background">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
-          {/* Left: Carousel */}
-          <motion.div
-            className="lg:col-span-6 order-2 lg:order-1"
-            variants={carouselVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          {/* Title and First Paragraph Row */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 mb-8 sm:mb-10 md:mb-12 lg:mb-14 xl:mb-16 items-start">
+            {/* Left: Title */}
+            <div className="md:col-span-5">
+              <motion.h2 
+                variants={itemVariants}
+                className="text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl font-bold tracking-tight flex items-center gap-2"
+              >
+                <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 bg-foreground block"></span>
+                Ce este Lumos Box?
+              </motion.h2>
+            </div>
+
+            {/* Right: First Paragraph */}
+            <div className="md:col-span-7">
+              <motion.p 
+                variants={itemVariants}
+                className="text-sm sm:text-base md:text-base lg:text-lg xl:text-lg text-foreground/70 leading-relaxed"
+              >
+                O soluție premium de fotobooth și experiențe interactive pentru evenimente moderne. 
+                Design minimalist, tehnologie avansată și calitate cinematică într-un singur pachet elegant.
+              </motion.p>
+            </div>
+          </div>
+
+          {/* Statistics and Second Paragraph Row - Aligned horizontally */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 mb-8 sm:mb-10 md:mb-12 lg:mb-14 xl:mb-16 items-end">
+            {/* Left: Statistics */}
+            <div className="md:col-span-5">
+              <motion.div 
+                variants={itemVariants}
+                className="flex flex-row gap-4 sm:gap-5 md:gap-6 lg:gap-8 xl:gap-10 2xl:gap-12 flex-wrap md:flex-nowrap"
+              >
+                {stats.map((stat, index) => (
+                  <div key={index} className="flex-shrink-0">
+                    <div className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight mb-1 sm:mb-1.5 md:mb-2">
+                      <span className="text-foreground">{stat.number.slice(0, -1)}</span>
+                      <span className="text-accent-neon-purple">+</span>
+                    </div>
+                    <p className="text-[10px] sm:text-xs md:text-xs lg:text-sm text-foreground/60 whitespace-nowrap">{stat.label}</p>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* Right: Second Paragraph */}
+            <div className="md:col-span-7">
+              <motion.p 
+                variants={itemVariants}
+                className="text-sm sm:text-base md:text-base lg:text-lg xl:text-lg text-foreground/70 leading-relaxed"
+              >
+                Echipa noastră lucrează strâns cu clienții pentru a înțelege profund viziunea, obiectivele și provocările lor, 
+                asigurându-ne că fiecare soluție pe care o livrăm este aliniată cu nevoile lor unice. Fie că ai nevoie de un 
+                fotobooth premium, o experiență interactivă sau o soluție completă pentru evenimentul tău.
+              </motion.p>
+            </div>
+          </div>
+
+          {/* Services Section */}
+          <motion.div 
+            variants={itemVariants}
+            className="border-t border-foreground/10 pt-8 sm:pt-10 md:pt-12 lg:pt-14 xl:pt-16"
           >
-            <div className="relative">
-              <Carousel setApi={setApi} className="w-full">
-                <CarouselContent>
-                  {slides.map((slide, index) => (
-                    <CarouselItem key={index}>
-                      <div className="relative aspect-[4/5] rounded-2xl border border-foreground/10 overflow-hidden shadow-none">
-                        <img
-                          src={slide.src}
-                          alt={slide.alt}
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                        />
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16">
+              {/* Left: Title and Button */}
+              <div className="md:col-span-5">
+                <motion.h3 
+                  variants={itemVariants}
+                  className="text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl font-bold tracking-tight mb-6 sm:mb-7 md:mb-8 flex items-center gap-2"
+                >
+                  <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 bg-accent-neon-purple block"></span>
+                  Servicii
+                </motion.h3>
+                <motion.div variants={itemVariants}>
+                  <Button
+                    variant="ghost"
+                    className="border border-accent-neon-purple rounded-lg px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base md:text-base text-accent-neon-purple hover:bg-accent-neon-purple/10 transition-colors"
+                    onClick={() => {
+                      const element = document.getElementById("booking")
+                      if (element) {
+                        element.scrollIntoView({ behavior: "smooth" })
+                      }
+                    }}
+                  >
+                    Hai să vorbim
+                    <ArrowRight className="ml-2 h-3 w-3 sm:h-3.5 sm:w-3.5 md:h-4 md:w-4 text-accent-neon-purple" />
+                  </Button>
+                </motion.div>
+              </div>
+
+              {/* Right: Services List */}
+              <div className="md:col-span-7">
+                <motion.ul 
+                  variants={containerVariants}
+                  className="space-y-0"
+                >
+                  {services.map((service, index) => (
+                    <motion.li 
+                      key={index}
+                      variants={itemVariants}
+                    >
+                      <div 
+                        className="flex items-center justify-between py-3 sm:py-4 cursor-pointer group"
+                        onClick={() => {
+                          const element = document.getElementById("packages")
+                          if (element) {
+                            element.scrollIntoView({ behavior: "smooth" })
+                          }
+                        }}
+                      >
+                        <span className="text-sm sm:text-base md:text-base lg:text-lg xl:text-lg text-foreground group-hover:text-accent-neon-purple transition-colors">
+                          {service}
+                        </span>
+                        <ArrowRight className="h-4 w-4 sm:h-4 sm:w-4 md:h-4 md:w-4 text-foreground/60 group-hover:text-accent-neon-purple transition-colors flex-shrink-0" />
                       </div>
-                    </CarouselItem>
+                      {index < services.length - 1 && (
+                        <Separator className="bg-white" />
+                      )}
+                    </motion.li>
                   ))}
-                </CarouselContent>
-                <CarouselPrevious className="hidden lg:flex -left-12 hover:underline hover:decoration-accent hover:decoration-1 hover:underline-offset-4" />
-                <CarouselNext className="hidden lg:flex -right-12 hover:underline hover:decoration-accent hover:decoration-1 hover:underline-offset-4" />
-              </Carousel>
-              
-              {/* Slide counter overlay */}
-              <div className="absolute top-4 left-4 flex items-center gap-2">
-                <span className="text-sm text-foreground/60">
-                  {String(current).padStart(2, "0")} / {String(count).padStart(2, "0")}
-                </span>
-                <span className="w-1 h-1 rounded-full bg-accent"></span>
+                </motion.ul>
               </div>
             </div>
           </motion.div>
-
-          {/* Right: Text Content */}
-          <motion.div
-            className="lg:col-span-6 order-1 lg:order-2 flex flex-col justify-center"
-            variants={textContainerVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-          >
-            {/* Optional micro-label */}
-            <motion.div 
-              variants={textItemVariants}
-              className="flex items-center justify-center lg:justify-start gap-2 mb-4 text-sm text-foreground/60"
-            >
-              <span className="w-1 h-1 rounded-full bg-accent"></span>
-              <span>Designed for modern events</span>
-            </motion.div>
-
-            {/* Title */}
-            <motion.h2 
-              variants={textItemVariants}
-              className="text-3xl md:text-4xl font-extrabold tracking-tight leading-[1.1] mb-6 text-center lg:text-left"
-            >
-              Ce este{" "}
-              <span className="relative">
-                Lumos
-                <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-accent"></span>
-              </span>{" "}
-              Box?
-            </motion.h2>
-
-            {/* Paragraph */}
-            <motion.p 
-              variants={textItemVariants}
-              className="text-base md:text-lg text-foreground/70 leading-relaxed mb-8 text-center lg:text-left"
-            >
-              O soluție premium de fotobooth și experiențe interactive pentru evenimente moderne. 
-              Design minimalist, tehnologie avansată și calitate cinematică într-un singur pachet elegant.
-            </motion.p>
-
-            {/* Optional CTA */}
-            <motion.div 
-              variants={textItemVariants}
-              className="text-center lg:text-left"
-            >
-              <Button
-                variant="ghost"
-                className="neon-pulse text-base md:text-lg relative px-6 py-3 min-w-[200px] hover:underline hover:decoration-accent hover:decoration-1 hover:underline-offset-8"
-                onClick={() => {
-                  const element = document.getElementById("how-it-works")
-                  if (element) {
-                    element.scrollIntoView({ behavior: "smooth" })
-                  }
-                }}
-              >
-                <span>Vezi cum funcționează</span>
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
