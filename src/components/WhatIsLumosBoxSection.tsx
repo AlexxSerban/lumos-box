@@ -125,20 +125,20 @@ const WhatIsLumosBoxSection = () => {
             variants={itemVariants}
             className="border-t border-foreground/10 pt-8 sm:pt-10 md:pt-12 lg:pt-14 xl:pt-16"
           >
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 md:items-start">
               {/* Left: Title and Button */}
-              <div className="md:col-span-5">
+              <div className="md:col-span-5 flex flex-col h-full">
                 <motion.h3 
                   variants={itemVariants}
-                  className="text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl font-bold tracking-tight mb-6 sm:mb-7 md:mb-8 flex items-center gap-2"
+                  className="text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-3xl font-bold tracking-tight mb-6 sm:mb-7 md:mb-8 flex items-center gap-2 pt-3 sm:pt-4"
                 >
                   <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 bg-accent-neon-purple block"></span>
                   Servicii
                 </motion.h3>
-                <motion.div variants={itemVariants}>
+                <motion.div variants={itemVariants} className="mt-auto">
                   <Button
                     variant="ghost"
-                    className="border border-accent-neon-purple rounded-lg px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base md:text-base text-accent-neon-purple hover:bg-accent-neon-purple/10 transition-colors"
+                    className="border border-accent-neon-purple rounded-2xl px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base md:text-base text-accent-neon-purple hover:bg-accent-neon-purple/10 transition-colors"
                     onClick={() => {
                       const element = document.getElementById("booking")
                       if (element) {
