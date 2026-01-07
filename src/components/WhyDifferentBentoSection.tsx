@@ -34,14 +34,14 @@ const WhyDifferentBentoSection = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="mb-16 md:mb-20 text-center lg:text-left">
-          <div className="flex items-center justify-center lg:justify-start gap-2 mb-4 text-sm text-black/60">
+          <div className="flex items-center justify-center lg:justify-start gap-2 mb-4 text-sm text-foreground/60">
             <span className="w-1 h-1 rounded-full bg-accent"></span>
             <span>Built for modern events</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.1] mb-4">
             De ce e diferit.
           </h2>
-          <p className="text-base md:text-lg text-black/70 max-w-2xl mx-auto lg:mx-0">
+          <p className="text-base md:text-lg text-foreground/70 max-w-2xl mx-auto lg:mx-0">
             O abordare minimalistă care pune calitatea și experiența în centru.
           </p>
         </div>
@@ -58,10 +58,10 @@ const WhyDifferentBentoSection = () => {
                   isBig ? "lg:col-span-7" : "lg:col-span-5"
                 )}
               >
-                <Card className="group cursor-pointer transition-all duration-300 hover:border-black/20 hover:-translate-y-0.5">
+                <Card className="group cursor-pointer transition-all duration-300 hover:border-foreground/20 hover:-translate-y-0.5">
                   <CardContent className="p-6 md:p-8">
                     {feature.microline && (
-                      <div className="mb-3 text-xs uppercase tracking-widest text-black/50 text-center lg:text-left">
+                      <div className="mb-3 text-xs uppercase tracking-widest text-foreground/50 text-center lg:text-left">
                         {feature.microline}
                       </div>
                     )}
@@ -77,7 +77,7 @@ const WhyDifferentBentoSection = () => {
                         </span>
                       )}
                     </h3>
-                    <p className="text-sm md:text-base text-black/70 leading-relaxed text-center lg:text-left">
+                    <p className="text-sm md:text-base text-foreground/70 leading-relaxed text-center lg:text-left">
                       {feature.description}
                     </p>
                   </CardContent>

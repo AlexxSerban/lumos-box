@@ -123,7 +123,7 @@ const WhatIsLumosBoxSection = () => {
                 <CarouselContent>
                   {slides.map((slide, index) => (
                     <CarouselItem key={index}>
-                      <div className="relative aspect-[4/5] rounded-2xl border border-black/10 overflow-hidden shadow-none">
+                      <div className="relative aspect-[4/5] rounded-2xl border border-foreground/10 overflow-hidden shadow-none">
                         <img
                           src={slide.src}
                           alt={slide.alt}
@@ -140,7 +140,7 @@ const WhatIsLumosBoxSection = () => {
               
               {/* Slide counter overlay */}
               <div className="absolute top-4 left-4 flex items-center gap-2">
-                <span className="text-sm text-black/60">
+                <span className="text-sm text-foreground/60">
                   {String(current).padStart(2, "0")} / {String(count).padStart(2, "0")}
                 </span>
                 <span className="w-1 h-1 rounded-full bg-accent"></span>
@@ -158,7 +158,7 @@ const WhatIsLumosBoxSection = () => {
             {/* Optional micro-label */}
             <motion.div 
               variants={textItemVariants}
-              className="flex items-center justify-center lg:justify-start gap-2 mb-4 text-sm text-black/60"
+              className="flex items-center justify-center lg:justify-start gap-2 mb-4 text-sm text-foreground/60"
             >
               <span className="w-1 h-1 rounded-full bg-accent"></span>
               <span>Designed for modern events</span>
@@ -180,7 +180,7 @@ const WhatIsLumosBoxSection = () => {
             {/* Paragraph */}
             <motion.p 
               variants={textItemVariants}
-              className="text-base md:text-lg text-black/70 leading-relaxed mb-8 text-center lg:text-left"
+              className="text-base md:text-lg text-foreground/70 leading-relaxed mb-8 text-center lg:text-left"
             >
               O soluție premium de fotobooth și experiențe interactive pentru evenimente moderne. 
               Design minimalist, tehnologie avansată și calitate cinematică într-un singur pachet elegant.

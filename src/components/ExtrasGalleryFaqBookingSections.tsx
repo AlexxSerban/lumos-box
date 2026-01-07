@@ -142,14 +142,14 @@ const ExtrasGalleryFaqBookingSections = () => {
       <section id="addons" className="py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-background">
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 md:mb-20 text-center lg:text-left">
-            <div className="flex items-center justify-center lg:justify-start gap-2 mb-4 text-sm text-black/60">
+            <div className="flex items-center justify-center lg:justify-start gap-2 mb-4 text-sm text-foreground/60">
               <span className="w-1 h-1 rounded-full bg-accent"></span>
               <span>Personalizabil</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-[1.1] mb-4">
               Opțiuni suplimentare.
             </h2>
-            <p className="text-base md:text-lg text-black/70 max-w-2xl mx-auto lg:mx-0">
+            <p className="text-base md:text-lg text-foreground/70 max-w-2xl mx-auto lg:mx-0">
               Personalizează experiența după nevoile evenimentului tău.
             </p>
           </div>
@@ -158,14 +158,14 @@ const ExtrasGalleryFaqBookingSections = () => {
             {addons.map((addon, index) => (
               <Card
                 key={index}
-                className="group cursor-default transition-all duration-300 hover:border-black/20 hover:-translate-y-0.5"
+                className="group cursor-default transition-all duration-300 hover:border-foreground/20 hover:-translate-y-0.5"
               >
                 <CardContent className="p-6 md:p-8">
                   <h3 className="text-lg font-semibold tracking-tight mb-2 relative group-hover:underline group-hover:decoration-accent group-hover:decoration-[2px] group-hover:underline-offset-8 transition-all duration-300">
                     {addon.title}
                   </h3>
                   {addon.description && (
-                    <p className="text-sm text-black/70">{addon.description}</p>
+                    <p className="text-sm text-foreground/70">{addon.description}</p>
                   )}
                 </CardContent>
               </Card>
@@ -180,7 +180,7 @@ const ExtrasGalleryFaqBookingSections = () => {
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-[1.1] mb-2">
             Galerie.
           </h2>
-          <p className="text-base md:text-lg text-black/70 max-w-2xl">
+          <p className="text-base md:text-lg text-foreground/70 max-w-2xl">
             Cadre reale din evenimente. Ușor de distribuit.
           </p>
         </div>
@@ -231,7 +231,7 @@ const ExtrasGalleryFaqBookingSections = () => {
         <div className="absolute bottom-6 left-6 md:bottom-12 md:left-12 lg:left-20 z-20">
           <a
             href="#"
-            className="text-sm text-black/60 hover:text-foreground hover:underline hover:decoration-accent hover:decoration-1 hover:underline-offset-4 transition-colors"
+            className="text-sm text-foreground/60 hover:text-foreground hover:underline hover:decoration-accent hover:decoration-1 hover:underline-offset-4 transition-colors"
           >
             Vezi mai multe pe Instagram
           </a>
@@ -245,7 +245,7 @@ const ExtrasGalleryFaqBookingSections = () => {
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-[1.1] mb-4">
               Întrebări.
             </h2>
-            <p className="text-base md:text-lg text-black/70 max-w-2xl mx-auto lg:mx-0">
+            <p className="text-base md:text-lg text-foreground/70 max-w-2xl mx-auto lg:mx-0">
               Răspunsuri la cele mai frecvente întrebări.
             </p>
           </div>
@@ -257,7 +257,7 @@ const ExtrasGalleryFaqBookingSections = () => {
                   <AccordionTrigger className="text-left text-base md:text-lg font-medium text-foreground">
                     {item.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-base text-black/70 leading-relaxed">
+                  <AccordionContent className="text-base text-foreground/70 leading-relaxed">
                     {item.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -274,7 +274,7 @@ const ExtrasGalleryFaqBookingSections = () => {
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-[1.1] mb-4">
               Cere ofertă personalizată.
             </h2>
-            <p className="text-base md:text-lg text-black/70 max-w-2xl mx-auto lg:mx-0">
+            <p className="text-base md:text-lg text-foreground/70 max-w-2xl mx-auto lg:mx-0">
               Spune-ne câteva detalii, revenim rapid cu o ofertă.
             </p>
           </div>
@@ -349,7 +349,7 @@ const ExtrasGalleryFaqBookingSections = () => {
               </div>
 
               {submitted ? (
-                <div className="text-base text-black/70">
+                <div className="text-base text-foreground/70">
                   Mulțumim! Revenim curând.
                 </div>
               ) : (
@@ -363,7 +363,7 @@ const ExtrasGalleryFaqBookingSections = () => {
                     <span></span>
                     CERE OFERTĂ PERSONALIZATĂ
                   </Button>
-                  <p className="text-xs text-black/50 mt-4">
+                  <p className="text-xs text-foreground/50 mt-4">
                     Nu trimitem spam. Doar detalii pentru ofertă.
                   </p>
                 </>
