@@ -137,7 +137,7 @@ const Footer = () => {
         {/* Right Column - Image */}
         <div className="lg:col-span-2 hidden lg:block bg-background relative overflow-hidden">
           <img
-            src="/images/LumosFooter.png"
+            src={`${import.meta.env.BASE_URL}images/LumosFooter.png`}
             alt="Lumos Box Footer"
             className="w-full h-full object-cover"
           />

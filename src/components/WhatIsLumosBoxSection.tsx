@@ -12,19 +12,19 @@ import { Button } from "./ui/button"
 
 const slides = [
   {
-    src: "/images/LumosBusiness.png",
+    src: `${import.meta.env.BASE_URL}images/LumosBusiness.png`,
     alt: "Lumos Box - Business events",
   },
   {
-    src: "/images/LumosNunta.png",
+    src: `${import.meta.env.BASE_URL}images/LumosNunta.png`,
     alt: "Lumos Box - Wedding events",
   },
   {
-    src: "/images/LumosParty.png",
+    src: `${import.meta.env.BASE_URL}images/LumosParty.png`,
     alt: "Lumos Box - Party events",
   },
   {
-    src: "/images/LumosPetrecere.png",
+    src: `${import.meta.env.BASE_URL}images/LumosPetrecere.png`,
     alt: "Lumos Box - Celebration events",
   },
 ]

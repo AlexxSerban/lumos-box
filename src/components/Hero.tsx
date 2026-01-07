@@ -41,7 +41,7 @@ const Hero = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat lg:hidden"
         style={{
-          backgroundImage: "url('/images/hero-bg-mobile.png')",
+          backgroundImage: `url('${import.meta.env.BASE_URL}images/hero-bg-mobile.png')`,
         }}
       />
       
@@ -49,7 +49,7 @@ const Hero = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden lg:block"
         style={{
-          backgroundImage: "url('/images/heroSection2.png')",
+          backgroundImage: `url('${import.meta.env.BASE_URL}images/heroSection2.png')`,
         }}
       />
       

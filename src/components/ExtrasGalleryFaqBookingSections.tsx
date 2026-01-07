@@ -34,42 +34,42 @@ const addons = [
 const galleryImages = [
   {
     id: 1,
-    src: "/images/LumosBusiness.png",
+    src: `${import.meta.env.BASE_URL}images/LumosBusiness.png`,
     alt: "Lumos Box - Evenimente business",
   },
   {
     id: 2,
-    src: "/images/LumosNunta.png",
+    src: `${import.meta.env.BASE_URL}images/LumosNunta.png`,
     alt: "Lumos Box - Nunți",
   },
   {
     id: 3,
-    src: "/images/LumosParty.png",
+    src: `${import.meta.env.BASE_URL}images/LumosParty.png`,
     alt: "Lumos Box - Petreceri",
   },
   {
     id: 4,
-    src: "/images/LumosPetrecere.png",
+    src: `${import.meta.env.BASE_URL}images/LumosPetrecere.png`,
     alt: "Lumos Box - Evenimente de sărbătoare",
   },
   {
     id: 5,
-    src: "/images/LumosBusiness.png",
+    src: `${import.meta.env.BASE_URL}images/LumosBusiness.png`,
     alt: "Lumos Box - Evenimente business",
   },
   {
     id: 6,
-    src: "/images/LumosNunta.png",
+    src: `${import.meta.env.BASE_URL}images/LumosNunta.png`,
     alt: "Lumos Box - Nunți",
   },
   {
     id: 7,
-    src: "/images/LumosParty.png",
+    src: `${import.meta.env.BASE_URL}images/LumosParty.png`,
     alt: "Lumos Box - Petreceri",
   },
   {
     id: 8,
-    src: "/images/LumosPetrecere.png",
+    src: `${import.meta.env.BASE_URL}images/LumosPetrecere.png`,
     alt: "Lumos Box - Evenimente de sărbătoare",
   },
 ]
